@@ -13,6 +13,9 @@ const config: Config = {
         primary: '#1769ff',
         red: '#f34642',
       },
+      screens: {
+        md: '800px',
+      },
     },
   },
   plugins: [],
