@@ -23,7 +23,7 @@ export function Header() {
   const pathname = usePathname()
 
   return (
-    <header className="flex items-center justify-between h-[5rem] px-4 bg-white shadow-lg md:h-[6.875rem]">
+    <header className="fixed z-10 flex items-center justify-between w-full h-[5rem] px-4 bg-white shadow-lg md:h-[6.875rem]">
       <div className="flex items-center justify-between w-full md:w-fit">
         <Image src="/logo.png" alt="CRM Systems" width={147} height={110} className="hidden md:block" priority />
 
