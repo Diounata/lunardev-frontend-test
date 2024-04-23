@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 import { TextButton } from '@/components/text-button'
 
-import { formatNumberMask } from '@/utils/formatNumberMask'
+import { formatPhoneMask } from '@/utils/formatPhoneMask'
 
 import type { Client } from '../types/client'
 
@@ -23,7 +23,7 @@ export function ClientCard({ client, index }: Props) {
 
       <div className="flex flex-wrap gap-6">
         <DataContainer label="Email" data={client.email} />
-        <DataContainer label="Phone" data={formatNumberMask(client.phone, '(##) #####-####')} />
+        <DataContainer label="Phone" data={formatPhoneMask(client.phone)} />
       </div>
 
       <div className="flex flex-wrap gap-6">

@@ -12,6 +12,17 @@ body {
   color: #000;
 }
 
+th {
+  text-align: start;
+}
+
+tr {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 3fr 2fr 2fr;
+
+  border-bottom: 1px solid #00000010;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
