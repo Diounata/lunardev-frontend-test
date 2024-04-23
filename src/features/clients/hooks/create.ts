@@ -24,7 +24,6 @@ export function useCreateClient() {
     async data => {
       const oldClients = getLocalStorage('clients') ?? []
       const client: Client = { id: uuid(), ...data }
-      console.log(oldClients)
 
       setLocalStorage('clients', [client, ...oldClients])
 

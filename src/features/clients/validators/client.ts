@@ -7,7 +7,7 @@ export const clientSchema = z.object({
   phone: z
     .string()
     .nonempty('This field is required')
-    .refine(phone => !phone.length || phone.length === 15, 'This phone is invalid'),
+    .refine(phone => !phone.length || phone.length === 15, 'This phone is incomplete'),
 })
 
 export type FormInput = z.infer<typeof clientSchema>
