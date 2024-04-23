@@ -58,7 +58,7 @@ export default function Clients() {
   )
 
   return (
-    <div className="flex flex-col gap-9 md:py-8 md:px-[2.5rem] xl:px-[5.75rem]">
+    <div className="flex flex-col gap-9">
       <header className="flex items-center justify-between">
         <h1 className="text-xl font-medium md:text-3xl">Clients (4)</h1>
 

@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={`flex flex-col min-h-screen bg-gray-100 ${roboto.className}`}>
         <Header />
 
-        <main className="grow my-20 px-4 py-10">{children}</main>
+        <main className="grow my-20 px-4 py-10 md:py-[4.5rem] md:px-[3.5rem] xl:px-[9.75rem]">{children}</main>
 
         <Footer />
       </body>
