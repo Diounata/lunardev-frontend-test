@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { FormProvider, SubmitHandler, UseFormReturn } from 'react-hook-form'
 
 import { Button } from '@/components/button'
@@ -42,7 +43,9 @@ export function ClientForm({ type, form, onSubmit }: Props) {
               {type_message}
             </Button>
 
-            <TextButton>Cancel</TextButton>
+            <TextButton>
+              <Link href="/clients">Cancel</Link>
+            </TextButton>
           </div>
         </form>
       </div>

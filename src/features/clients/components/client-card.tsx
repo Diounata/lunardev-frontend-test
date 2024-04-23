@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { TextButton } from '@/components/text-button'
 
@@ -28,7 +29,9 @@ export function ClientCard({ client, index }: Props) {
 
       <div className="flex flex-wrap gap-6">
         <TextButton>
-          <Image src="/edit.svg" alt="Edit" width={18} height={16} /> Edit
+          <Link href={`/clients/update/${client.id}`}>
+            <Image src="/edit.svg" alt="Edit" width={18} height={16} /> Edit
+          </Link>
         </TextButton>
 
         <TextButton>

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { TextButton } from '@/components/text-button'
 
@@ -33,9 +34,11 @@ export function ClientsTable({ clients }: Props) {
             <td className="flex items-center underline">{client.email}</td>
             <td className="flex items-center">{formatPhoneMask(client.phone)}</td>
             <td className="flex items-center gap-4">
-              <TextButton>
-                <Image src="/edit.svg" alt="Edit" width={18} height={16} /> Edit
-              </TextButton>
+              <Link href={`/clients/update/${client.id}`}>
+                <TextButton>
+                  <Image src="/edit.svg" alt="Edit" width={18} height={16} /> Edit
+                </TextButton>
+              </Link>
 
               <TextButton>
                 <Image src="/trash.svg" alt="Delete" width={14} height={16} /> Delete
