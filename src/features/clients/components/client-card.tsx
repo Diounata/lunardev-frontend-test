@@ -28,11 +28,11 @@ export function ClientCard({ client, index }: Props) {
       </div>
 
       <div className="flex flex-wrap gap-6">
-        <TextButton>
-          <Link href={`/clients/update/${client.id}`}>
+        <Link href={`/clients/update/${client.id}`}>
+          <TextButton>
             <Image src="/edit.svg" alt="Edit" width={18} height={16} /> Edit
-          </Link>
-        </TextButton>
+          </TextButton>
+        </Link>
 
         <TextButton>
           <Image src="/trash.svg" alt="Delete" width={14} height={16} /> Delete

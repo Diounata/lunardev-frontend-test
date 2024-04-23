@@ -34,7 +34,7 @@ export function ClientForm({ type, form, onSubmit }: Props) {
 
             <section className="flex flex-col gap-4 md:flex-row">
               <Input label="Email" name="email" type="email" />
-              <Input label="Phone" name="phone" />
+              <Input label="Phone" name="phone" mask="(##) #####-####" />
             </section>
           </div>
 
