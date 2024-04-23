@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { Button } from '@/components/button'
 import { ClientCard } from '@/features/clients/components/client-card'
 import { ClientsTable } from '@/features/clients/components/clients-table'
+import { DeleteClientModalConfirmation } from '@/features/clients/components/delete-client-modal-confirmation'
+import { DeleteClientProvider } from '@/features/clients/contexts/delete-modal'
 
 import { useGetAllClients } from '@/features/clients/hooks/getAll'
 import { useWindowWidth } from '@/lib/hooks/useWindowWidth'
@@ -12,24 +14,27 @@ import { useWindowWidth } from '@/lib/hooks/useWindowWidth'
 import type { Client } from '@/features/clients/types/client'
 
 export default function Clients() {
-  const {
-    initialData: { clients },
-  } = useGetAllClients()
+  const { isLoading, clients, setClients } = useGetAllClients()
+
+  if (isLoading) return <div className="text-lg font-medium md:text-xl">Loading...</div>
 
   return (
-    <div className="flex flex-col gap-9">
-      <header className="flex items-center justify-between">
-        <h1 className="text-xl font-medium md:text-3xl">Clients ({clients.length})</h1>
+    <DeleteClientProvider>
+      <div className="flex flex-col gap-9">
+        <header className="flex items-center justify-between">
+          <h1 className="text-xl font-medium md:text-3xl">Clients ({clients.length})</h1>
 
-        <Link href="/clients/create">
-          <Button>+ New</Button>
-        </Link>
-      </header>
+          <Link href="/clients/create">
+            <Button>+ New</Button>
+          </Link>
+        </header>
 
-      <main>
-        <ClientsDisplay clients={clients} />
-      </main>
-    </div>
+        <main>
+          <ClientsDisplay clients={clients} />
+          <DeleteClientModalConfirmation setClients={setClients} />
+        </main>
+      </div>
+    </DeleteClientProvider>
   )
 }
 

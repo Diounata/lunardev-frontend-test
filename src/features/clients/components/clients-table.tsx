@@ -3,6 +3,8 @@ import Link from 'next/link'
 
 import { TextButton } from '@/components/text-button'
 
+import { useDeleteClientContext } from '../contexts/delete-modal'
+
 import { formatPhoneMask } from '@/utils/formatPhoneMask'
 
 import type { Client } from '../types/client'
@@ -12,6 +14,8 @@ interface Props {
 }
 
 export function ClientsTable({ clients }: Props) {
+  const { setDeletingClientId } = useDeleteClientContext()
+
   return (
     <table className="bg-white rounded-xl shadow-md w-full">
       <thead>
@@ -40,7 +44,7 @@ export function ClientsTable({ clients }: Props) {
                 </TextButton>
               </Link>
 
-              <TextButton>
+              <TextButton onClick={() => setDeletingClientId(client.id)}>
                 <Image src="/trash.svg" alt="Delete" width={14} height={16} /> Delete
               </TextButton>
             </td>

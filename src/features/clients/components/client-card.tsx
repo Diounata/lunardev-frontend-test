@@ -3,6 +3,8 @@ import Link from 'next/link'
 
 import { TextButton } from '@/components/text-button'
 
+import { useDeleteClientContext } from '../contexts/delete-modal'
+
 import { formatPhoneMask } from '@/utils/formatPhoneMask'
 
 import type { Client } from '../types/client'
@@ -13,6 +15,8 @@ interface Props {
 }
 
 export function ClientCard({ client, index }: Props) {
+  const { setDeletingClientId } = useDeleteClientContext()
+
   return (
     <article className="flex flex-col gap-6 min-h-[11.5625rem] p-4 bg-white rounded-xl drop-shadow-md">
       <div className="flex flex-wrap gap-6 w-full relative">
@@ -34,7 +38,7 @@ export function ClientCard({ client, index }: Props) {
           </TextButton>
         </Link>
 
-        <TextButton>
+        <TextButton onClick={() => setDeletingClientId(client.id)}>
           <Image src="/trash.svg" alt="Delete" width={14} height={16} /> Delete
         </TextButton>
       </div>
