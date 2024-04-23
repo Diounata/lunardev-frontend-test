@@ -20,7 +20,7 @@ export function useUpdateClient({ client_id }: Props) {
   const router = useRouter()
 
   let clients = useRef<Client[]>([])
-  let updatingClient = useRef<Client | undefined>()
+  let updatingClient = useRef<Client | undefined>(undefined)
 
   const updateClientForm = useForm<FormInput>({
     resolver: zodResolver(clientSchema),
@@ -45,9 +45,13 @@ export function useUpdateClient({ client_id }: Props) {
     clients.current = getLocalStorage('clients') ?? []
     updatingClient.current = clients.current.find(client => client.id === client_id)
 
-    if (!updatingClient) {
-      toast.error('Client not found!')
+    if (!updatingClient.current) {
       router.push('/clients')
+
+      return () => {
+        toast.error('Client not found')
+        console.log('running')
+      }
     }
 
     const { name, surname, email, phone } = updatingClient.current as Client
