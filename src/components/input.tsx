@@ -12,6 +12,7 @@ interface Props extends InputHTMLAttributes<any> {
 export function Input({ label, name, mask, ...props }: Props) {
   const {
     formState: { errors },
+    register,
   } = useFormContext()
 
   const error = errors[name]
@@ -24,6 +25,7 @@ export function Input({ label, name, mask, ...props }: Props) {
 
       <input
         type="text"
+        {...register(name)}
         name={name}
         id={name}
         className={`bg-gray-50 border border-gray-300 text-base rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 outline-none ${

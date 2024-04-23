@@ -1,5 +1,6 @@
-import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
+import { Toaster } from 'react-hot-toast'
+import type { Metadata } from 'next'
 
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
@@ -24,6 +25,7 @@ export default function RootLayout({
 
         <main className="grow my-20 px-4 py-10 md:py-[4.5rem] md:px-[3.5rem] xl:px-[9.75rem]">{children}</main>
 
+        <Toaster />
         <Footer />
       </body>
     </html>
