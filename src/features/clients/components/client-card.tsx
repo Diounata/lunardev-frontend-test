@@ -49,7 +49,7 @@ export function ClientCard({ client, index }: Props) {
 function DataContainer({ label, data }: { label: string; data: string }) {
   return (
     <div className="flex flex-col gap-[0.375rem] font-normal">
-      <p className="text-[0.625rem] opacity-40">{label}</p>
+      <p className="text-[0.625rem] opacity-65">{label}</p>
       <p className={`text-sm ${label === 'Email' && 'underline'}`}>{data}</p>
     </div>
   )
