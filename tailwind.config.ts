@@ -11,7 +11,6 @@ const config: Config = {
     extend: {
       colors: {
         primary: '#1769ff',
-        red: '#f34642',
       },
       screens: {
         md: '800px',

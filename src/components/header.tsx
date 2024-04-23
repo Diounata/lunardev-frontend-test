@@ -34,7 +34,7 @@ export function Header() {
         <nav className="flex items-center gap-4">
           {links.map(link => (
             <Link
-              href="#"
+              href={link.pathname}
               className={`text-sm hover:text-gray-800 sm:text-base md:text-xl ${
                 link.pathname === pathname && 'font-medium underline'
               }`}
